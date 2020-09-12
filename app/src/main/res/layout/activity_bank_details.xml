@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="bankData"
+            type="com.daniel.banklist.models.vos.ui.BankDataVO" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".activities.BankDetailsActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="300dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsingLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:contentScrim="@color/white"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <ImageView
+                    android:id="@+id/bankImageView"
+                    android:scaleType="fitXY"
+                    android:transitionName="@string/share_trans_bank_logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    app:layout_collapseMode="pin"
+                    app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:fillViewport="true"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <RelativeLayout
+                android:id="@+id/newsContentView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/bankDetailsTitleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:layout_marginTop="@dimen/margin_xlarge"
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:lineSpacingMultiplier="1.4"
+                    android:text="@{bankData.name}"
+                    tools:text="KBZ"
+                    android:layout_alignParentStart="true"
+                    android:textStyle="bold"
+                    android:layout_toStartOf="@id/bankDetailsTypeTv"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/SP_XXL_size"
+                    android:transitionName="@string/share_trans_bank_name" />
+
+                <TextView
+                    android:id="@+id/bankDetailsTypeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:paddingStart="@dimen/margin_2xSmall"
+                    android:paddingEnd="@dimen/margin_2xSmall"
+                    android:layout_marginTop="@dimen/margin_large"
+                    android:background="@drawable/bg_course_video_back"
+                    android:lineSpacingMultiplier="1.3"
+                    android:gravity="center"
+                    android:text="@{bankData.type}"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/SP_S_size"
+                    android:transitionName="@string/share_trans_bank_details_type"
+                    tools:text="Bank" />
+
+                <TextView
+                    android:id="@+id/bankDetailsContentTitleTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bankDetailsTypeTv"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:lineSpacingMultiplier="1.2"
+                    android:paddingTop="@dimen/margin_4xSmall"
+                    android:paddingBottom="@dimen/margin_4xSmall"
+                    android:text="@string/title_text_about_bank"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/SP_XL_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/bankDetailsContentTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bankDetailsContentTitleTv"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:layout_marginTop="9dp"
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:lineSpacingMultiplier="1.2"
+                    android:paddingTop="@dimen/margin_4xSmall"
+                    android:paddingBottom="@dimen/margin_4xSmall"
+                    android:text="@{bankData.description}"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/SP_L_size"
+                    tools:text="" />
+
+                <TextView
+                    android:id="@+id/bankDetailsInstructionTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/SP_XL_size"
+                    android:layout_marginTop="@dimen/margin_3xlarge"
+                    android:layout_below="@id/bankDetailsContentTv"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:paddingTop="@dimen/margin_4xSmall"
+                    android:paddingBottom="@dimen/margin_4xSmall"
+                    android:text="@string/title_text_instructions"
+                    android:lineSpacingMultiplier="1.5"
+                    android:textColor="@color/textColorBlack"
+                    />
+
+
+                <TextView
+                    android:id="@+id/bankDetailsInstruction1Tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/margin_4xSmall"
+                    android:paddingBottom="@dimen/margin_4xSmall"
+                    android:lineSpacingMultiplier="1.2"
+                    android:layout_marginTop="@dimen/margin_2xSmall"
+                    android:layout_below="@id/bankDetailsInstructionTv"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    tools:text=""
+                    android:text="@{bankData.description}"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/SP_L_size" />
+
+
+                <TextView
+                    android:id="@+id/bankDetailsInstruction2Tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/margin_4xSmall"
+                    android:paddingBottom="@dimen/margin_4xSmall"
+                    android:lineSpacingMultiplier="1.2"
+                    android:layout_below="@id/bankDetailsInstruction1Tv"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    tools:text=""
+                    android:text="@{bankData.description}"
+                
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/SP_L_size" />
+
+                <TextView
+                    android:id="@+id/bankDetailsMaxAmountTitleTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/bankDetailsInstruction2Tv"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:background="@color/transparent"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:lineSpacingMultiplier="1.2"
+                    android:paddingTop="@dimen/margin_4xSmall"
+                    android:paddingBottom="@dimen/margin_4xSmall"
+                    android:text="@string/title_text_max_amount"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/SP_XL_size"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/bankDetailsMaxAmountTv"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignTop="@id/bankDetailsMaxAmountTitleTv"
+
+                    android:layout_toEndOf="@id/bankDetailsMaxAmountTitleTv"
+                    android:layout_below="@id/bankDetailsContentTitleTv"
+                    android:layout_marginStart="@dimen/margin_xlarge"
+                    android:paddingStart="@dimen/margin_2xSmall"
+
+                    android:layout_marginEnd="@dimen/margin_xlarge"
+                    android:clickable="true"
+                    tools:text="100000 MMk"
+                    android:focusable="true"
+                    android:gravity="end"
+                    android:lineSpacingMultiplier="1.2"
+                    android:paddingTop="@dimen/margin_4xSmall"
+                    android:paddingBottom="@dimen/margin_4xSmall"
+                    android:text="@{bankData.maxAmount}"
+                    android:textColor="@color/textColorBlack"
+                    android:textSize="@dimen/SP_L_size"
+                    />
+
+
+            </RelativeLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

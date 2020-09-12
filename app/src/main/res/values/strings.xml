@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">BankList</string>
+    <string name="error_generic">Unexpected error occurred. Please retry again.</string>
+    <string name="error_server_404">Content not found. Please try again.</string>
+    <string name="error_server_500">Internal server error occurred. Please try again later.</string>
+    <string name="error_no_internet">No internet connection</string>
+    <string name="error_socket_timeout">Error occurred due to slow network connection.</string>
+    <string name="sp_access_token">sp_access_token</string>
+    <string name="btn_msg_ok">OK</string>
+    <string name="error_loading_data">Error in getting data. Please try again.</string>
+    <string name="share_trans_bank_name">trans bank name</string>
+    <string name="title_text_instructions">Instructions</string>
+    <string name="share_trans_bank_details_type">trans bank details type</string>
+    <string name="title_text_about_bank">About bank</string>
+    <string name="title_text_max_amount">Max amount</string>
+    <string name="share_trans_bank_logo">trans bank logo</string>
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="data"
+            type="com.daniel.banklist.models.vos.ui.BankDataVO" />
+    </data>
+
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_2xSmall"
+        android:layout_marginBottom="@dimen/margin_2xSmall"
+        android:layout_marginStart="@dimen/margin_2xlarge"
+        android:layout_marginEnd="@dimen/margin_2xlarge"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
+        app:cardBackgroundColor="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/bankDetailsCardLayout"
+            android:layout_width="match_parent"
+            android:layout_height="112dp">
+            <ImageView
+                android:id="@+id/logoIv"
+                android:layout_width="84dp"
+                android:layout_height="72dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_baseline_broken_image_24"
+                android:layout_marginTop="@dimen/margin_2xlarge"
+                android:layout_marginBottom="@dimen/margin_2xlarge"
+                android:transitionName="@string/share_trans_bank_logo"
+                android:layout_marginStart="@dimen/margin_2xlarge"/>
+
+            <TextView
+                android:id="@+id/bankDetailsTitleTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_xlarge"
+                android:layout_marginTop="@dimen/margin_xlarge"
+                android:layout_marginEnd="@dimen/margin_xlarge"
+                android:lineSpacingMultiplier="1.4"
+                android:text="@{data.name}"
+                tools:text="KBZ"
+
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/logoIv"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/SP_XXL_size"
+                android:transitionName="@string/share_trans_bank_name" />
+
+            <TextView
+                android:id="@+id/bankDetailsTypeTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/margin_2xlarge"
+                android:layout_alignParentBottom="true"
+
+                android:layout_marginBottom="@dimen/margin_2xlarge"
+                android:lineSpacingMultiplier="1.3"
+                android:gravity="center"
+                android:text="@{data.type}"
+                android:textColor="@color/textColorBlack"
+                android:textSize="@dimen/SP_S_size"
+                android:transitionName="@string/share_trans_bank_details_type"
+                tools:text="Bank" />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

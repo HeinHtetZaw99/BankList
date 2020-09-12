@@ -1,0 +1,3 @@
+include ':buildSrcs'
+include ':app'
+rootProject.name = "BankList"
